@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consumer-app
+  labels:
+    app: consumer-app
+spec:
+  selector:
+    matchLabels:
+      app: consumer-app
+  template:
+    metadata:
+      labels:
+        app: consumer-app
+    spec:
+      hostNetwork: true
+      containers:
+        - name: consumer-app
+          image: consumer-app-image
+          env:
+            - name: ENV
+              value: dev
+            - name: JAVA_OPTS
+              value: >-
+                -Duser.timezone=America/Sao_Paulo -Dfile.encoding=UTF8 -Xms512m
+                -Xmx1024m

@@ -1,0 +1,5 @@
+/.idea/
+/consumer-app/.gradle/
+/consumer-app/build/
+/producer-app/.gradle/
+/producer-app/build/

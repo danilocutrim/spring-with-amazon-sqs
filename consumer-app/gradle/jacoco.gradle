@@ -1,0 +1,24 @@
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        csv.enabled false
+        html.enabled = true
+    }
+    afterEvaluate {
+        classDirectories.from = files(classDirectories.files.collect {
+            fileTree(dir: it,
+                    exclude: [
+                            'br/com/consumer/model/*',
+                            'br/com/consumer/exception/*',
+                            'br/com/consumer/config/*',
+                            'br/com/consumer/constants/*',
+                            'br/com/consumer/Application*',
+                            'br/com/consumer/filter/*',
+                            'br/com/consumer/controller/*'
+                    ])
+        })
+    }
+}
+
+jacocoTestReport.dependsOn test
+check.dependsOn jacocoTestReport
