@@ -2,5 +2,5 @@
 /consumer-app/build/
 /producer-app/.gradle/
 /producer-app/build/
-
-
+/.gradle/
+/.idea/
